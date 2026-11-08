@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasykia Ayu Karina | Personal Portfolio</title>
+<style>
+:root{--navy:#2d101d;--blue:#e2a0b5;--light:#21131a;--muted:#c0aeb6;--white:#fff8fa;--surface:#24151d;--surface-raised:#2d1a24;--line:#4a2b38}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#170e13;color:var(--white)}
+header{background:#1b0d14;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:18px;position:sticky;top:0;z-index:100;border-bottom:1px solid #39212c}
+.logo{font-size:20px;font-weight:800;white-space:nowrap}
+nav{display:flex;flex-wrap:wrap;gap:15px}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:#f0b7c8}
+.hero{min-height:570px;background:linear-gradient(120deg,rgba(25,8,16,.88),rgba(83,18,45,.76)),url("foto.jpg") center 45%/cover no-repeat;color:white;display:flex;align-items:center;justify-content:space-between;padding:65px 10%;gap:50px}
+.hero h1{font-size:clamp(32px,5vw,46px);margin:15px 0}
+.hero p{line-height:1.8;max-width:570px}
+.tag{color:#f0b7c8;letter-spacing:2px;font-size:12px}
+.profile{width:300px;height:390px;border-radius:30px;background:#3a1c2a;color:var(--white);display:flex;align-items:center;justify-content:center;text-align:center;border:5px solid #f4dce4;overflow:hidden;flex-shrink:0;padding:0;box-shadow:0 20px 55px #10070d80}
+.profile img{width:100%;height:100%;object-fit:cover;object-position:center}
+.btn{display:inline-block;margin-top:25px;background:#f5e5eb;color:#48172c;padding:12px 25px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:13px}
+section{padding:70px 10%}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:28px;color:#f0c2d0}
+.section-title p{color:var(--muted);margin-top:9px;font-size:14px;line-height:1.6}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.about p{line-height:1.9;color:#d0c0c7}
+.bio{background:var(--surface);padding:24px;border-radius:15px;box-shadow:0 8px 26px #00000030;border:1px solid var(--line)}
+.bio div{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.6}
+.bio b{color:#e8a9bc}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:var(--surface);padding:23px;border-radius:16px;box-shadow:0 8px 24px #00000024;border:1px solid var(--line);border-left:4px solid #a74869;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #00000045}
+.card .icon{font-size:28px;margin:8px 0 12px}
+.card h3{color:#f0c2d0;margin:5px 0 9px;line-height:1.45;font-size:17px}
+.card p{color:#c8b7bf;line-height:1.7;font-size:14px}
+.year{color:#e8a9bc;font-size:12px;font-weight:bold;display:block;margin-bottom:8px}
+.number{display:inline-flex;background:#492338;color:#f3c9d6;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:bold;margin-bottom:9px}
+.achievement-type{display:inline-block;background:#492338;color:#f3c9d6;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:bold;margin-bottom:8px}
+.year-heading{grid-column:1/-1;color:#f0c2d0;font-size:21px;margin:22px 0 2px;padding-bottom:10px;border-bottom:2px solid #67334b}
+.education{max-width:760px;margin:auto}
+.edu-item{background:var(--surface);padding:23px;margin-bottom:17px;border-radius:15px;border:1px solid var(--line);border-left:4px solid #a74869;box-shadow:0 8px 24px #00000024}
+.edu-item h3{color:#f0c2d0;margin:7px 0}
+.edu-item p{color:var(--muted);font-size:14px}
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:13px}
+.skill{background:#38202b;color:#f0c2d0;border:1px solid #63354b;padding:13px 20px;border-radius:30px;font-size:14px;font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.doc-card{border:1px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;box-shadow:0 8px 24px #00000030;transition:.25s}
+.doc-card:hover{transform:translateY(-4px)}
+.doc-card img{width:100%;height:160px;object-fit:cover;display:block}
+.doc-placeholder{height:160px;background:#38202b;color:#f0c2d0;display:flex;justify-content:center;align-items:center;text-align:center;padding:15px;font-size:13px}
+.doc-caption{display:block;padding:12px;color:#f0c2d0;font-size:13px;font-weight:bold}
+.doc-caption small{display:block;color:var(--muted);font-weight:normal;margin-top:5px}
+.gallery-note{text-align:center;color:var(--muted);font-size:13px;margin-top:18px;line-height:1.6}
+.modal{display:none;position:fixed;z-index:999;inset:0;background:rgba(10,20,50,.93);justify-content:center;align-items:center;padding:20px}
+.modal.active{display:flex}
+.modal-content{max-width:900px;width:100%;text-align:center}
+.modal-content img{max-width:100%;max-height:78vh;border-radius:12px;object-fit:contain}
+.modal-caption{color:white;margin-top:14px}
+.close-modal{position:absolute;right:25px;top:12px;color:white;font-size:36px;background:none;border:0;cursor:pointer}
+.motto{background:linear-gradient(120deg,#2b101d,#6b1c3c);color:white;text-align:center;padding:50px 10%}
+.motto h2{margin-bottom:16px}
+.motto p{font-size:19px;font-style:italic;line-height:1.7}
+footer{text-align:center;background:#1b0d14;color:white;padding:32px 15px;font-size:13px;line-height:2;border-top:1px solid #39212c}
+@media(max-width:800px){header{flex-direction:column}.hero{padding:50px 7%;gap:35px}.profile{width:270px;height:350px}.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){nav{justify-content:center;gap:12px}.hero{flex-direction:column-reverse;text-align:center;padding:42px 7%}.hero h1{font-size:32px}.profile{width:min(270px,82vw);height:min(350px,106vw)}.about,.grid{grid-template-columns:1fr}section{padding:52px 7%}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.doc-card img,.doc-placeholder{height:130px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MY PORTFOLIO.</div>
+  <nav>
+    <a href="#home">Home</a><a href="#about">Biodata</a><a href="#prestasi">Prestasi</a>
+    <a href="#organisasi">Organisasi</a><a href="#pendidikan">Pendidikan</a>
+    <a href="#kegiatan">Kegiatan</a><a href="#bakat">Bakat</a><a href="#dokumentasi">Dokumentasi</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <div>
+    <span class="tag">WELCOME TO MY PERSONAL PORTFOLIO</span>
+    <h1>Halo, Saya<br>Tasykia Ayu Karina!</h1>
+    <p>A student, achiever, and lifelong learner. Saya memiliki semangat untuk terus berkembang melalui akademik, organisasi, kepemimpinan, kreativitas, dan berbagai pengalaman baru.</p>
+    <a href="#about" class="btn">Kenali Saya →</a>
+  </div>
+  <div class="profile">
+    <img src="foto.jpg" alt="Foto Tasykia Ayu Karina" onerror="this.style.display='none';this.parentElement.innerHTML='Masukkan foto profil di sini<br><small>Gunakan nama file foto.jpg</small>'">
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-title"><h2>About Me</h2><p>Mengenal lebih dekat tentang diri saya</p></div>
+  <div class="about">
+    <div>
+      <h2>Tasykia Ayu Karina</h2><br>
+      <p>Saya merupakan siswa di SMA Taruna Nusantara yang memiliki ketertarikan dalam bidang akademik, kepemimpinan, teknologi digital, dan pengembangan diri. Saya aktif mengikuti berbagai kompetisi akademik maupun nonakademik serta memiliki pengalaman dalam organisasi, kepemimpinan, dan pelatihan. Bagi saya, setiap tantangan adalah kesempatan untuk memperoleh pengetahuan, mengembangkan potensi, dan memberikan kontribusi positif bagi lingkungan sekitar.</p>
+    </div>
+    <div class="bio">
+      <div><b>Nama:</b> Tasykia Ayu Karina</div>
+      <div><b>Sekolah:</b> SMA Taruna Nusantara</div>
+      <div><b>Status:</b> Pelajar</div>
+      <div><b>Bidang Minat:</b> Akademik, Teknologi Digital, Kepemimpinan</div>
+      <div><b>Motto:</b> Chasing knowledge, creating opportunities, and inspiring others.</div>
+    </div>
+  </div>
+</section>
+
+<section id="prestasi" style="background:#1b1117">
+  <div class="section-title"><h2>Achievements & Competitions</h2><p>Rekam jejak prestasi dan kompetisi yang pernah diikuti, disusun berdasarkan tahun</p></div>
+  <div class="grid" id="achievementGrid"></div>
+</section>
+
+<section id="organisasi">
+  <div class="section-title"><h2>Leadership & Organization</h2><p>Pengalaman jabatan, organisasi, dan kepemimpinan</p></div>
+  <div class="grid">
+    <article class="card"><span class="year">2025–2026</span><div class="icon">👮</div><h3>Ketua Komisi Disiplin (KOMDIS)</h3><p>Organisasi Paskibra SMP Negeri 1 Buduran. Bertanggung jawab dalam bidang kedisiplinan dan ketertiban anggota.</p></article>
+    <article class="card"><span class="year">2025–2026</span><div class="icon">🔬</div><h3>Wakil Ketua Karya Ilmiah Remaja (KIR)</h3><p>SMP Negeri 1 Buduran. Mendukung kegiatan penelitian, pengembangan ide, dan karya ilmiah.</p></article>
+    <article class="card"><span class="year">2023–2026</span><div class="icon">⚜️</div><h3>Komandan Pleton (Danton) Paskibra</h3><p>SMP Negeri 1 Buduran. Memimpin dan mengoordinasikan anggota dalam kegiatan latihan serta pelaksanaan tugas.</p></article>
+    <article class="card"><span class="year">Periode belum dicantumkan</span><div class="icon">🎖️</div><h3>Pelatih Paskibra</h3><p>Melatih Paskibra tingkat SD/MI dalam pengembangan kedisiplinan, keterampilan, dan kekompakan.</p></article>
+    <article class="card"><span class="year">2024</span><div class="icon">🎨</div><h3>Wakil Ketua Desain Grafis</h3><p>Komunitas Penggerak Pendidikan Indonesia (KPPI). Berkontribusi dalam bidang desain grafis dan pengembangan kreativitas visual.</p></article>
+  </div>
+</section>
+
+<section id="pendidikan" style="background:#1b1117">
+  <div class="section-title"><h2>Education</h2><p>Perjalanan pendidikan saya</p></div>
+  <div class="education">
+    <div class="edu-item"><span class="year">2017–2023</span><h3>SD Negeri Sidomulyo</h3><p>Sekolah Dasar</p></div>
+    <div class="edu-item"><span class="year">2023–2026</span><h3>SMP Negeri 1 Buduran</h3><p>Sekolah Menengah Pertama</p></div>
+    <div class="edu-item"><span class="year">2026–Sekarang</span><h3>SMA Taruna Nusantara</h3><p>Sekolah Menengah Atas</p></div>
+  </div>
+</section>
+
+<section id="kegiatan">
+  <div class="section-title"><h2>Activities & Experiences</h2><p>Pengalaman kegiatan yang membentuk karakter, kedisiplinan, dan kemampuan saya</p></div>
+  <div class="grid">
+    <article class="card"><span class="year">2022</span><div class="icon">⚜️</div><h3>Lomba Tingkat II REGU PENGGALANG</h3><p>Mengikuti kegiatan Lomba Tingkat II di Bumi Perkemahan Mojokerto sebagai pengalaman kepramukaan serta sarana mengembangkan kedisiplinan, kemandirian, dan kerja sama tim.</p></article>
+    <article class="card"><span class="year">SMP Negeri 1 Buduran 2023</span><div class="icon">🎖️</div><h3>Latihan Dasar Kepemimpinan Siswa (LDKS)</h3><p>Mengikuti kegiatan LDKS sebagai sarana pengembangan jiwa kepemimpinan, tanggung jawab, kedisiplinan, serta kemampuan bekerja sama dalam organisasi.</p></article>
+    <article class="card"><span class="year">SMA Taruna Nusantara</span><div class="icon">🏔️</div><h3>Rute Panglima Sudirman (RPS)</h3><p>Mengikuti kegiatan Rute Panglima Sudirman sebagai pengalaman dalam membangun ketangguhan, kedisiplinan, semangat juang, dan kebersamaan.</p></article>
+    <article class="card">
+    <span class="year">SMP Negeri 1 Buduran · 2025</span>
+    <div class="icon">⛺</div>
+    <h3>Panitia DIKLATSAR PASBARAN 2025</h3>
+    <p>Berpartisipasi sebagai panitia dalam kegiatan DIKLATSAR PASBARAN 2025 SMP Negeri 1 Buduran, dengan mengembangkan kemampuan kepemimpinan, tanggung jawab, kerja sama tim, kedisiplinan, serta keterampilan dalam mengelola kegiatan.</p>
+</article>
+  </div>
+</section>
+
+<section id="bakat" style="background:#1b1117">
+  <div class="section-title"><h2>Skills & Talents</h2><p>Bakat, minat, dan kemampuan yang terus saya kembangkan</p></div>
+  <div class="skills">
+    <span class="skill">💻 Teknologi Digital</span><span class="skill">🎬 Editing</span>
+    <span class="skill">🎨 Kreativitas</span><span class="skill">✍️ Menulis</span>
+    <span class="skill">🎤 Public Speaking</span><span class="skill">🤝 Kerja Sama Tim</span>
+    <span class="skill">📋 Kepemimpinan</span><span class="skill">💡 Problem Solving</span>
+  </div>
+</section>
+
+<section id="dokumentasi">
+  <div class="section-title"><h2>Dokumentasi Kegiatan</h2><p>Berbagai momen dari kegiatan dan pengalaman yang saya ikuti</p></div>
+  <div class="gallery" id="gallery"></div>
+  <p class="gallery-note">Foto-foto kegiatan ditampilkan di sini. Klik foto untuk melihat ukuran lebih besar.</p>
+</section>
+
+<div class="modal" id="docModal" onclick="closeDoc()">
+  <button class="close-modal" aria-label="Tutup" onclick="closeDoc()">×</button>
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" alt="Dokumentasi kegiatan">
+    <div class="modal-caption" id="modalCaption"></div>
+  </div>
+</div>
+
+<div class="motto"><h2>My Life Motto</h2><p>"Chasing knowledge, creating opportunities,<br>and inspiring others."</p></div>
+<footer>
+  <h3>TASYKIA AYU KARINA</h3>
+  <p>Personal Portfolio</p>
+  <p>Every experience is a step towards becoming better.</p>
+  <p>© 2026 Tasykia Ayu Karina. All Rights Reserved.</p>
+</footer>
+
+<script>
+const achievements = [
+  {year:2022,type:"MEDALI PERUNGGU",icon:"🥉",title:"LT II – Lomba Sandi-Sandi",desc:"Peraih Medali Perunggu dalam perlombaan sandi-sandi LT II tahun 2022."},
+  {year:2022,type:"PESERTA",icon:"🎤",title:"FLS2N Jenjang SD",desc:"Peserta Festival dan Lomba Seni Siswa Nasional (FLS2N) jenjang SD bidang Solo Vocal tahun 2022."},
+  {year:2022,type:"PESERTA",icon:"⚜️",title:"LT II Regu Penggalang",desc:"Peserta kegiatan Lomba Tingkat II Regu Penggalang tahun 2022."},
+
+  {year:2023,type:"JUARA CARAKA 2",icon:"🏆",title:"LKBB Netizen",desc:"Peraih Juara Caraka 2 dalam Lomba Keterampilan Baris-Berbaris (LKBB) Netizen tahun 2023."},
+
+  {year:2024,type:"JUARA TERBAIK 2",icon:"🏆",title:"Lomba Pewara",desc:"Peraih Juara Terbaik 2 dalam kompetisi Lomba Pewara tahun 2024."},
+  {year:2024,type:"PESERTA",icon:"🧬",title:"Olimpiade Biologi ITS (OBI)",desc:"Peserta Olimpiade Biologi ITS tahun 2024."},
+  {year:2024,type:"PESERTA",icon:"🔬",title:"Kompetisi Sains Ruangguru (KSR)",desc:"Peserta bidang IPS tingkat nasional tahun 2024."},
+  {year:2024,type:"PESERTA",icon:"🌏",title:"MGMP IPS",desc:"Peserta kegiatan Musyawarah Guru Mata Pelajaran (MGMP) IPS tahun 2024."},
+
+  {year:2025,type:"JUARA 1",icon:"🥇",title:"Lomba Pembacaan UUD 1945",desc:"Peraih Juara 1 Lomba Pembacaan Undang-Undang Dasar 1945 tahun 2025."},
+  {year:2025,type:"JUARA PERINTIS 2",icon:"🏆",title:"LKBB Aksara Jawa",desc:"Peraih Juara Perintis 2 dalam Lomba Keterampilan Baris-Berbaris (LKBB) Aksara Jawa tingkat nasional tahun 2025."},
+  {year:2025,type:"MEDALI EMAS",icon:"🥇",title:"Global Genius Competition",desc:"Bidang Sejarah — 29 Juni 2025."},
+  {year:2025,type:"MEDALI EMAS",icon:"🥇",title:"Brilliant Academic Olympiad",desc:"Bidang IPA — 30 Juni 2025."},
+  {year:2025,type:"MEDALI EMAS",icon:"🥇",title:"Genius Youth Competition",desc:"Bidang IPA — 6 Juli 2025."},
+  {year:2025,type:"MEDALI EMAS",icon:"🥇",title:"Social Smart Competition",desc:"Bidang Sejarah — 13 Juli 2025."},
+  {year:2025,type:"MEDALI EMAS",icon:"🥇",title:"Indonesian Student Brilliant Olympiad",desc:"Bidang Sejarah — 28 Juli 2025."},
+  {year:2025,type:"MEDALI PERAK",icon:"🥈",title:"ISSC",desc:"Indonesian Student Science Competition, bidang IPS — 14 Juli 2025."},
+  {year:2025,type:"MEDALI PERUNGGU",icon:"🥉",title:"Batavia Smart Student Competition",desc:"Bidang Sejarah — 6 Juli 2025."},
+  {year:2025,type:"MEDALI PERUNGGU",icon:"🥉",title:"KSAN",desc:"Kompetisi Sains Akbar Nasional, bidang IPS — 21 Juli 2025."},
+  {year:2025,type:"FINALIS",icon:"🔬",title:"Kompetisi Sains Ruangguru (KSR)",desc:"Finalis bidang IPA tingkat nasional tahun 2025."},
+  {year:2025,type:"SEMIFINALIS",icon:"🌟",title:"Bintang Sobat SMP",desc:"Semifinalis Bintang Sobat SMP Provinsi Jawa Timur (Kemendikdasmen), tingkat nasional tahun 2025."},
+  {year:2025,type:"SEMIFINALIS",icon:"💻",title:"DigiWise",desc:"Semifinalis Digital Wellness and Internet Safety Education tahun 2025."},
+  {year:2025,type:"PESERTA",icon:"🎤",title:"SMANISDA CUP",desc:"Peserta kompetisi bidang Solo Vocal tahun 2025."},
+  {year:2025,type:"PESERTA",icon:"🎖️",title:"MSI XXII SMA TN",desc:"Peserta MSI XXII SMA Taruna Nusantara tahun 2025."},
+  {year:2025,type:"PESERTA",icon:"🔬",title:"MGMP IPA",desc:"Peserta kegiatan MGMP IPA tahun 2025."},
+  {year:2025,type:"PESERTA",icon:"🧪",title:"Olimpiade Sains Nasional (OSN)",desc:"Peserta OSN bidang IPA tahun 2025."},
+
+  {year:2026,type:"PENGHARGAAN PRESTASI",icon:"🏆",title:"Prestasi Bidang Nonakademik",desc:"Peraih penghargaan prestasi bidang nonakademik SMP Negeri 1 Buduran tahun 2026."},
+  {year:2026,type:"PESERTA / DELEGATE",icon:"🌐",title:"Model United Nations (MUN)",desc:"Peserta Model United Nations Taruna Nusantara 2026."}
+];
+
+const order = ["JUARA","MEDALI","FINALIS","SEMIFINALIS","PENGHARGAAN","PESERTA"];
+const grid = document.getElementById("achievementGrid");
+[2022,2023,2024,2025,2026].forEach(year=>{
+  const heading=document.createElement("h3");
+  heading.className="year-heading";
+  heading.textContent=year+" — "+({2022:"Early Achievements",2023:"Leadership & Discipline",2024:"Academic & Non-Academic",2025:"National Competitions & Achievements",2026:"Current Achievements"}[year]);
+  grid.appendChild(heading);
+  achievements.filter(a=>a.year===year).sort((a,b)=>{
+    const rank=t=>order.findIndex(x=>t.startsWith(x));
+    return rank(a.type)-rank(b.type);
+  }).forEach((a,i)=>{
+    const card=document.createElement("article");
+    card.className="card";
+    card.innerHTML=`<span class="achievement-type">${a.type}</span><div class="icon">${a.icon}</div><h3>${a.title}</h3><p>${a.desc}</p>`;
+    grid.appendChild(card);
+  });
+});
+
+const gallery=document.getElementById("gallery");
+for(let i=1;i<=20;i++){
+  const num=String(i).padStart(2,"0");
+  const button=document.createElement("button");
+  button.className="doc-card";
+  button.type="button";
+  button.dataset.src=`dokumentasi/lomba-${num}.jpg`;
+  button.dataset.title=`Dokumentasi Kegiatan ${num}`;
+  button.innerHTML=`<img src="dokumentasi/lomba-${num}.jpg" alt="Dokumentasi kegiatan ${num}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="doc-placeholder" style="display:none">📷 Foto kegiatan ${num} belum diunggah</div><span class="doc-caption">Kegiatan ${num}<small>Dokumentasi kegiatan</small></span>`;
+  button.addEventListener("click",()=>openDoc(button));
+  gallery.appendChild(button);
+}
+
+function openDoc(button){
+  document.getElementById("modalImage").src=button.dataset.src;
+  document.getElementById("modalCaption").textContent=button.dataset.title;
+  document.getElementById("docModal").classList.add("active");
+}
+function closeDoc(){
+  document.getElementById("docModal").classList.remove("active");
+  document.getElementById("modalImage").src="";
+}
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeDoc();});
+</script>
+</body>
+</html>
